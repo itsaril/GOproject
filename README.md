@@ -1,9 +1,22 @@
 # GOproject
+Project Name: School Learning Portal
 
-I will create a website that will contain useful information about GoLang, including:
+Project Description:
+The School Learning Portal is a web application that provides management of educational materials, class schedules, grades, and communication between teachers, students, and parents. Within this project, we will create a fully functional system for managing educational processes in a school.
 
-1. (Basic concepts and functions of GoLang): Explanations of key concepts such as goroutines, channels, interfaces, etc.
-2. (Getting Started Guides): Detailed instructions for beginners on how to get started with GoLang, install it, create the first program, etc.
-3. (Tips and practical recommendations): Articles about advanced GoLang programming techniques, tips for optimizing code, recommendations for structuring projects and improving performance
-4. (Useful Resources): Links to GoLang documentation, books, blogs, video courses and other resources that will help developers deepen their knowledge about GoLang.
-5. (Developer Tools): An overview of tools that can be useful when working with GoLang, such as code editors, integrated development environments (IDEs), plugins, etc.
+API Structure:
+The API will be built according to the REST architectural style to ensure flexibility and scalability. It will provide endpoints for working with educational materials, class schedules, grades, and users (teachers, students, and parents).
+
+Database Entity Structure and Relationships:
+The database will contain the following main entities:
+
+Users (teachers, students, parents) with corresponding attributes (ID, name, email, password, etc.).
+Educational materials with attributes (ID, title, description, subject, grade, etc.).
+Class schedules with attributes (ID, day of the week, start and end time, subject, teacher, etc.).
+Grades with attributes (ID, student, subject, grade, date, etc.).
+
+Working CRUD on one of your database entities:
+We will start by implementing CRUD operations (Create, Read, Update, Delete) for managing users. This will allow us to create basic functionality and test the database operations.
+
+Code Structure according to Standard Layout:
+The code will be structured according to the principles of Standard Layout to ensure clarity and comprehensibility. Separate packages will be created for handling requests, working with the database, authentication, and other application components.
