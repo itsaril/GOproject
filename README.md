@@ -68,26 +68,26 @@ TABLEresponses (
 # Installation
 Make sure you have the Go programming language installed on your computer. If not, you can download it from the official Go website.
 
-_ Clone the Gobot repository from GitHub:
+# Clone the Gobot repository from GitHub:
 
 ```bash
 git clone https://github.com/your-username/gobot.git
 ```
 
-_ Navigate to the project directory:
+# Navigate to the project directory:
 
 ```bash
 cd gobot
 ```
 
-_ Install project dependencies:
+# Install project dependencies:
 
 ```bash
 go mod tidy
 ```
 
-_Usage
-_Run the project:
+# Usage
+# Run the project:
 
 ```bash
 go run main.go
