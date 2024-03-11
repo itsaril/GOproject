@@ -12,37 +12,35 @@ GoBot is a simple chatbot built using Golang that answers questions related to t
 # REST API structure for Gobot:
 
 1. Endpoint to add a new Go-related question:
-   - Method: POST
-   - Path: /questions
-   - Description: Adds a new question about the Go programming language.
-   - Request Body (JSON):
+   - `POST /questions`: Adds a new question about the Go programming language.
+   - `Request Body (JSON)`:
      ```json
      {
        "question": "Go question",
        "answer": "Answer to the Go question"
      }
      ```
-   - Response: Returns the added question with a unique identifier.
+   - `Response` : Returns the added question with a unique identifier.
 
 2. Endpoint to get a list of all Go-related questions:
-   - GET /questions/: id : Returns a list of all questions about the Go programming language.
-   - Response: Returns an array of question objects.
+   - `GET /questions/: id`: Returns a list of all questions about the Go programming language.
+   - `Response`: Returns an array of question objects.
 
 3. Endpoint to get information about a specific question by its ID:
-   - GET /questions/:id : Returns information about a specific question by its unique identifier.
-   - Path Parameters: :id - unique question identifier.
-   - Response: Returns information about the requested question.
+   - `GET /questions/:id` : Returns information about a specific question by its unique identifier.
+   - `Path Parameters:id`: - unique question identifier.
+   - `Response`: Returns information about the requested question.
 
 4. Endpoint to update information about a question by its ID:
-   - PUT /questions/:id : Updates information about a question by its unique identifier.
-   - Path Parameters: :id - unique question identifier.
-   - Request Body (JSON): Updated question data.
-   - Response: Returns the updated question.
+   - `PUT /questions/:id` : Updates information about a question by its unique identifier.
+   - `Path Parameters: :id` - unique question identifier.
+   - `Request Body (JSON)`: Updated question data.
+   - `Response`: Returns the updated question.
 
 5. Endpoint to delete a question by its ID:
-   - DELETE /questions/:id : Deletes a question from the database by its unique identifier.
-   - Path Parameters: :id - unique question identifier.
-   - Response: Empty response with status code 204 (No Content) upon successful deletion.
+   -` DELETE /questions/:id` : Deletes a question from the database by its unique identifier.
+   - `Path Parameters:id`: - unique question identifier.
+   - `Response`: Empty response with status code 204 (No Content) upon successful deletion.
 
    
 
