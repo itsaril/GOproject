@@ -6,13 +6,6 @@ Welcome to GoBot - your ultimate chatbot for all things Golang!
 
 GoBot is a simple chatbot built using Golang that answers questions related to the Golang programming language. It provides information, tips, and resources to help users learn and develop their skills in Golang.
 
-## Features
-
-- Register new users
-- Get information about registered users
-- Create, update, and delete questionnaires
-- Get information about existing questionnaires
-
 # REST API structure for Gobot:
 
 1. Endpoint to add a new Go-related question:
