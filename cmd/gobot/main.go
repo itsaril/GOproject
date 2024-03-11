@@ -8,6 +8,7 @@ import (
 	"github.com/itsaril/gobot/internal/handlers"
 )
 
+
 func main() {
 	http.HandleFunc("/questions", handlers.QuestionHandler)
 	fmt.Println("Server is running on port 8080...")
