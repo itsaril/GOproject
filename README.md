@@ -25,32 +25,26 @@ GoBot is a simple chatbot built using Golang that answers questions related to t
    - Response: Returns the added question with a unique identifier.
 
 2. Endpoint to get a list of all Go-related questions:
-   - Method: GET
-   - Path: /questions
-   - Description: Returns a list of all questions about the Go programming language.
+   - GET /questions/: id : Returns a list of all questions about the Go programming language.
    - Response: Returns an array of question objects.
 
 3. Endpoint to get information about a specific question by its ID:
-   - Method: GET
-   - Path: /questions/:id
-   - Description: Returns information about a specific question by its unique identifier.
+   - GET /questions/:id : Returns information about a specific question by its unique identifier.
    - Path Parameters: :id - unique question identifier.
    - Response: Returns information about the requested question.
 
 4. Endpoint to update information about a question by its ID:
-   - Method: PUT
-   - Path: /questions/:id
-   - Description: Updates information about a question by its unique identifier.
+   - PUT /questions/:id : Updates information about a question by its unique identifier.
    - Path Parameters: :id - unique question identifier.
    - Request Body (JSON): Updated question data.
    - Response: Returns the updated question.
 
 5. Endpoint to delete a question by its ID:
-   - Method: DELETE
-   - Path: /questions/:id
-   - Description: Deletes a question from the database by its unique identifier.
+   - DELETE /questions/:id : Deletes a question from the database by its unique identifier.
    - Path Parameters: :id - unique question identifier.
    - Response: Empty response with status code 204 (No Content) upon successful deletion.
+
+   
 
 # DB STRUCTURE 
 ```
