@@ -5,7 +5,6 @@ import (
 	"net/http"
 )
 
-// SendJSONResponse отправляет JSON ответ на запрос
 func SendJSONResponse(w http.ResponseWriter, statusCode int, data interface{}) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(statusCode)
