@@ -26,7 +26,6 @@ func TestQuestionHandler(t *testing.T) {
 			question: "",
 		},
 	}
-
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
 			reqBody := map[string]string{"question": tc.question}
