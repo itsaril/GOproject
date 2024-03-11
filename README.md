@@ -1,15 +1,21 @@
-# GOproject
-# Project Name: GoBot
+# GoBot project
 
+Welcome to GoBot - your ultimate chatbot for all things Golang!
 
-# Project Description: 
- GoBot is a chatbot designed to answer questions about the Go programming language. Users can ask questions about syntax, data structures, basic functions, etc., and the chatbot 
- will provide informative answers to these questions.
+## Description
 
+GoBot is a simple chatbot built using Golang that answers questions related to the Golang programming language. It provides information, tips, and resources to help users learn and develop their skills in Golang.
 
-# Functional Requirements:
+## Features
 
-- Support for common questions about Go, such as syntax, data structures, basic functions, etc.
-- Processing questions using Natural Language Processing (NLP) for a more natural interaction with the user.
-- Authorization and authentication via JWT Token to protect access to the bot.
-- Ability to extend the bot's functionality to add new features in the future.
+- Register new users
+- Get information about registered users
+- Create, update, and delete questionnaires
+- Get information about existing questionnaires
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/itsaril/gobot.git
