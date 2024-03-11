@@ -56,6 +56,15 @@ GoBot is a simple chatbot built using Golang that answers questions related to t
    - Path Parameters: :id - unique question identifier.
    - Response: Empty response with status code 204 (No Content) upon successful deletion.
 
+# DB STRUCTURE 
+```
+CREATE TABLE questions (
+    id SERIAL PRIMARY KEY,
+    question_text TEXT NOT NULL,
+    answer_text TEXT NOT NULL
+);
+```
+
 
 ## Installation
 
