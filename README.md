@@ -65,10 +65,37 @@ TABLEresponses (
 );
 ```
 
+# Installation
+Make sure you have the Go programming language installed on your computer. If not, you can download it from the official Go website.
 
-## Installation
+_ Clone the Gobot repository from GitHub:
 
-1. Clone the repository:
+```bash
+git clone https://github.com/your-username/gobot.git
+```
+
+_ Navigate to the project directory:
+
+```bash
+cd gobot
+```
+
+_ Install project dependencies:
+
+```bash
+go mod tidy
+```
+
+_Usage
+_Run the project:
+
+```bash
+go run main.go
+```
+
+Connect to the chatbot via the command-line interface.
+
+Ask questions about the Go programming language, and the chatbot will respond to them.
 
 ```bash
 git clone https://github.com/itsaril/gobot.git
