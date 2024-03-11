@@ -1,3 +1,6 @@
+# SD_Name: Myrzakhankyzy Arailym
+# SD_ID: 22B030408
+
 # GoBot project
 
 Welcome to GoBot - your ultimate chatbot for all things Golang!
