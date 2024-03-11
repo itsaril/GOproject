@@ -58,10 +58,17 @@ GoBot is a simple chatbot built using Golang that answers questions related to t
 
 # DB STRUCTURE 
 ```
-CREATE TABLE questions (
+TABLE questions (
     id SERIAL PRIMARY KEY,
-    question_text TEXT NOT NULL,
-    answer_text TEXT NOT NULL
+    question_text TEXT ,
+    answer_text TEXT 
+);
+
+TABLEresponses (
+    id SERIAL PRIMARY KEY,
+    question_id INT,
+    response TEXT ,
+    created_at TIMESTAMP ,
 );
 ```
 
