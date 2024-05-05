@@ -1,96 +1,122 @@
 # SD_Name: Myrzakhankyzy Arailym
 # SD_ID: 22B030408
 
-# GoBot project
-
-Welcome to GoBot - your ultimate chatbot for all things Golang!
+# LIBRARY project
 
 ## Description
 
-GoBot is a simple chatbot built using Golang that answers questions related to the Golang programming language. It provides information, tips, and resources to help users learn and develop their skills in Golang.
+a library that allows you to manage books, comments, users and purchases.
 
 # REST API structure for Gobot:
+Get a list of all books: GET /api/books.
+Add a new book: POST /api/books.
+Get a book by ID: GET /api/books/{id}.
+Update a book: PUT /api/books/{id}.
+Delete a book: DELETE /api/books/{id}.
+Get a list of comments for a book: GET /api/books/{id}/comments.
+Add a new comment to a book: POST /api/books/{id}/comments.
+Get a list of all users: GET /api/users.
+Get a user by ID: GET /api/users/{id}.
+Add a new user: POST /api/users.
+User authentication: POST /api/login.
+Get a list of all purchases: GET /api/purchases.
+Get a purchase by ID: GET /api/purchases/{id}.
+Create a new purchase: POST /api/purchases.
 
-1. Endpoint to add a new Go-related question:
-   - `POST /questions`: Adds a new question about the Go programming language.
-   - `Request Body (JSON)`:
-     ```json
-     {
-       "question": "Go question",
-       "answer": "Answer to the Go question"
-     }
-     ```
-   - `Response` : Returns the added question with a unique identifier.
-
-2. Endpoint to get a list of all Go-related questions:
-   - `GET /questions/: id`: Returns a list of all questions about the Go programming language.
-   - `Response`: Returns an array of question objects.
-
-3. Endpoint to get information about a specific question by its ID:
-   - `GET /questions/:id` : Returns information about a specific question by its unique identifier.
-   - `Path Parameters:id`: - unique question identifier.
-   - `Response`: Returns information about the requested question.
-
-4. Endpoint to update information about a question by its ID:
-   - `PUT /questions/:id` : Updates information about a question by its unique identifier.
-   - `Path Parameters: :id` - unique question identifier.
-   - `Request Body (JSON)`: Updated question data.
-   - `Response`: Returns the updated question.
-
-5. Endpoint to delete a question by its ID:
-   -` DELETE /questions/:id` : Deletes a question from the database by its unique identifier.
-   - `Path Parameters:id`: - unique question identifier.
-   - `Response`: Empty response with status code 204 (No Content) upon successful deletion.
-
-   
 
 # DB STRUCTURE 
 ```
-TABLE questions (
-    id SERIAL PRIMARY KEY,
-    question_text TEXT ,
-    answer_text TEXT 
+TABLE public.genres (
+    id integer NOT NULL DEFAULT,
+    genre character varying(255),
+    CONSTRAINT genres_pkey PRIMARY KEY (id)
 );
 
-TABLEresponses (
-    id SERIAL PRIMARY KEY,
-    question_id INT,
-    response TEXT ,
-    created_at TIMESTAMP ,
+TABLE public.books (
+    id integer NOT NULL DEFAULT,
+    title character varying(512),
+    release_date date,
+    pages integer DEFAULT 0,
+    rating REAL DEFAULT 0.0,
+    price REAL DEFAULT 0.0,
+    description text,
+    image character varying(255),
+    CONSTRAINT books_pkey PRIMARY KEY (id)
 );
+
+TABLE public.comments (
+    id integer NOT NULL DEFAULT,
+    book_id integer,
+    user_id integer,
+    comment text,
+    created_at timestamp without time zone,
+    CONSTRAINT comments_pkey PRIMARY KEY (id),
+    CONSTRAINT comments_unique_key UNIQUE (book_id, user_id, comment, created_at),
+    CONSTRAINT comments_book_id_fkey FOREIGN KEY (book_id) REFERENCES public.books(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT comments_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+TABLE public.purchase (
+    id integer NOT NULL DEFAULT,
+    user_id integer,
+    book_id integer,
+    address text,
+    created_at timestamp without time zone,
+    CONSTRAINT purchase_pkey PRIMARY KEY (id),
+    CONSTRAINT purchase_user_id_fkey FOREIGN KEY (user_id) REFERENCES public.users(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT purchase_book_id_fkey FOREIGN KEY (book_id) REFERENCES public.books(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+TABLE public.users (
+    id integer NOT NULL DEFAULT,
+    first_name character varying(255),
+    last_name character varying(255),
+    email character varying(255),
+    password character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    CONSTRAINT users_pkey PRIMARY KEY (id)
+);
+
+TABLE public.books_genres (
+    id integer NOT NULL DEFAULT,
+    book_id integer,
+    genre_id integer,
+    CONSTRAINT books_genres_pkey PRIMARY KEY (id),
+    CONSTRAINT books_genres_book_id_fkey FOREIGN KEY (book_id) REFERENCES public.books(id) ON UPDATE CASCADE ON DELETE CASCADE,
+    CONSTRAINT books_genres_genre_id_fkey FOREIGN KEY (genre_id) REFERENCES public.genres(id) ON UPDATE CASCADE ON DELETE CASCADE
+);
+
 ```
+
+# File and Directory Descriptions
+- api/main.go: Main application file containing settings and starting the web server.
+- controller/controller.go: File containing API request handlers.
+- internal/graph/graph.go: GraphQL object definition for books.
+- internal/models/*.go: Models for books, users, comments, and purchases.
+- internal/repository/repository.go: Interface for the database repository.
+- internal/repository/dbrepo/postgres_dbrepo.go: Implementation of the database repository for PostgreSQL.
+- sql/create_tables.sql: SQL script for creating database tables.
+- docker-compose.yml: Docker Compose file for deploying the application.
+- dockerfile: Dockerfile for building the application image.
+- go.mod and go.sum: Go module files.
+
+# Running the Project
+1. Make sure you have Docker and Docker Compose installed.
+2. Clone the repository: git clone <repository_url>.
+3. Navigate to the project directory: cd library.
+4. Run the project: docker-compose up --build.
 
 # Installation
-Make sure you have the Go programming language installed on your computer. If not, you can download it from the official Go website.
+1. Install Go and Docker.
+2. Clone the repository: git clone <repository_url>.
+3. Navigate to the project directory: cd library.
+4. Run the project: docker-compose up --build.
 
-# Clone the Gobot repository from GitHub:
+# Dependencies
+Go 1.16
+Docker
+PostgreSQL
 
-```bash
-git clone https://github.com/your-username/gobot.git
-```
-
-# Navigate to the project directory:
-
-```bash
-cd gobot
-```
-
-# Install project dependencies:
-
-```bash
-go mod tidy
-```
-
-# Usage
-# Run the project:
-
-```bash
-go run main.go
-```
-
-Connect to the chatbot via the command-line interface.
-
-Ask questions about the Go programming language, and the chatbot will respond to them.
-
-```bash
-git clone https://github.com/itsaril/gobot.git
+# Author
+https://github.com/itsaril
