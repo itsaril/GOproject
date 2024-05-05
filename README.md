@@ -1,31 +1,32 @@
 # SD_Name: Myrzakhankyzy Arailym
 # SD_ID: 22B030408
 
-# LIBRARY project
+# 📚 Library Management System
 
 ## Description
 
-a library that allows you to manage books, comments, users and purchases.
+Library Management System is a web application that allows users to manage books, comments, users, and purchases. It provides a RESTful API for performing various operations such as adding, updating, and deleting books, adding comments, managing users, and handling purchases.
 
-# REST API structure for Gobot:
-Get a list of all books: GET /api/books.
-Add a new book: POST /api/books.
-Get a book by ID: GET /api/books/{id}.
-Update a book: PUT /api/books/{id}.
-Delete a book: DELETE /api/books/{id}.
-Get a list of comments for a book: GET /api/books/{id}/comments.
-Add a new comment to a book: POST /api/books/{id}/comments.
-Get a list of all users: GET /api/users.
-Get a user by ID: GET /api/users/{id}.
-Add a new user: POST /api/users.
-User authentication: POST /api/login.
-Get a list of all purchases: GET /api/purchases.
-Get a purchase by ID: GET /api/purchases/{id}.
-Create a new purchase: POST /api/purchases.
+## 🚀 REST API Structure
 
+- Get a list of all books: `GET /api/books`
+- Add a new book: `POST /api/books`
+- Get a book by ID: `GET /api/books/{id}`
+- Update a book: `PUT /api/books/{id}`
+- Delete a book: `DELETE /api/books/{id}`
+- Get a list of comments for a book: `GET /api/books/{id}/comments`
+- Add a new comment to a book: `POST /api/books/{id}/comments`
+- Get a list of all users: `GET /api/users`
+- Get a user by ID: `GET /api/users/{id}`
+- Add a new user: `POST /api/users`
+- User authentication: `POST /api/login`
+- Get a list of all purchases: `GET /api/purchases`
+- Get a purchase by ID: `GET /api/purchases/{id}`
+- Create a new purchase: `POST /api/purchases`
 
-# DB STRUCTURE 
-```
+## 🛠️ Database Structure
+
+```sql
 TABLE public.genres (
     id integer NOT NULL DEFAULT,
     genre character varying(255),
